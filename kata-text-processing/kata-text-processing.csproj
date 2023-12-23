@@ -52,7 +52,9 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="Tests.cs"/>
+        <Compile Include="ProcessedText.cs" />
+        <Compile Include="TextProcessor.cs" />
+        <Compile Include="TextProcessorShould.cs" />
         <Compile Include="Properties\AssemblyInfo.cs"/>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
