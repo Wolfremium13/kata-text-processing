@@ -30,7 +30,7 @@ namespace kata_text_processing
                 { 9, "practice" },
                 { 10, "should" }
             };
-            Assert.Equal(expectedTopTenWords, processedText.GetTopTenWords());
+            Assert.Equal(expectedTopTenWords, processedText.TopTenWords);
         }
 
         [Fact]
@@ -40,7 +40,7 @@ namespace kata_text_processing
 
             var processedText = textProcessor.Analyze();
 
-            Assert.Equal(21, processedText.GetNumberOfWords());
+            Assert.Equal(21, processedText.NumberOfWords);
         }
     }
 }
