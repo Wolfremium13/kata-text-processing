@@ -31,5 +31,17 @@ namespace kata_text_processing
             };
             Assert.Equal(expectedTopTenWords, processedText.GetTopTenWords());
         }
+        
+        [Fact]
+        public void count_the_number_of_words()
+        {
+            var givenText =
+                "Hello, this is an example for you to practice. You should grab this text and make it as your test case. This is an example for you to practice. You should grab this text and make it as your test case.";
+            var textProcessor = new TextProcessor(givenText);
+
+            var processedText = textProcessor.analyze();
+            
+            Assert.Equal(21, processedText.GetNumberOfWords());
+        }
     }
 }

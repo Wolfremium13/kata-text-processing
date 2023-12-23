@@ -16,5 +16,10 @@ namespace kata_text_processing
         {
             return _topTenWords;
         }
+
+        public int GetNumberOfWords()
+        {
+            return 0;
+        }
     }
 }
