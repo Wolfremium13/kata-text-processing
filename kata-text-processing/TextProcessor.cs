@@ -6,7 +6,7 @@ namespace kata_text_processing
 {
     public class TextProcessor
     {
-        private string _text;
+        private readonly string _text;
 
         public TextProcessor(string givenText)
         {
@@ -28,21 +28,11 @@ namespace kata_text_processing
 
         private static Dictionary<int, string> GetTopTenWords(Dictionary<string, int> repeatedWords)
         {
-            var topTenWords = new Dictionary<int, string>();
-            var topTenWordsCount = 0;
-            var sortedRepeatedWords = repeatedWords.OrderByDescending(x => x.Value);
-            foreach (var word in sortedRepeatedWords)
-            {
-                if (topTenWordsCount == 10)
-                {
-                    break;
-                }
-
-                topTenWords.Add(topTenWordsCount + 1, word.Key);
-                topTenWordsCount++;
-            }
-
-            return topTenWords;
+            return repeatedWords
+                .OrderByDescending(repeatedWord => repeatedWord.Value)
+                .Take(10)
+                .Select((word, rank) => new { Index = rank + 1, Word = word.Key })
+                .ToDictionary(rankedWord => rankedWord.Index, x => x.Word);
         }
 
         private Dictionary<string, int> GetRepeatedWords()
