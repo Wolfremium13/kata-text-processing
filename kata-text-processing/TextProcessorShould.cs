@@ -14,7 +14,7 @@ namespace kata_text_processing
                 "Hello, this is an example for you to practice. You should grab this text and make it as your test case.";
             var textProcessor = new TextProcessor(givenText);
 
-            var processedText = textProcessor.analyze();
+            var processedText = textProcessor.Analyze();
 
             var expectedTopTenWords = new Dictionary<int, string>()
             {
@@ -36,10 +36,10 @@ namespace kata_text_processing
         public void count_the_number_of_words()
         {
             var givenText =
-                "Hello, this is an example for you to practice. You should grab this text and make it as your test case. This is an example for you to practice. You should grab this text and make it as your test case.";
+                "Hello, this is an example for you to practice. You should grab this text and make it as your test case.";
             var textProcessor = new TextProcessor(givenText);
 
-            var processedText = textProcessor.analyze();
+            var processedText = textProcessor.Analyze();
             
             Assert.Equal(21, processedText.GetNumberOfWords());
         }

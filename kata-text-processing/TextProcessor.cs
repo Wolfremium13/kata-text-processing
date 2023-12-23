@@ -13,11 +13,17 @@ namespace kata_text_processing
             _text = givenText;
         }
 
-        public ProcessedText analyze()
+        public ProcessedText Analyze()
         {
+            var numberOfWords = GetNumberOfWords();
             var repeatedWords = GetRepeatedWords();
             var topTenWords = GetTopTenWords(repeatedWords);
-            return new ProcessedText(topTenWords);
+            return new ProcessedText(topTenWords, numberOfWords);
+        }
+
+        private int GetNumberOfWords()
+        {
+            return _text.Split(' ').Length;
         }
 
         private static Dictionary<int, string> GetTopTenWords(Dictionary<string, int> repeatedWords)

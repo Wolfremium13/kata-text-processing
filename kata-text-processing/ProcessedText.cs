@@ -5,11 +5,13 @@ namespace kata_text_processing
 {
     public class ProcessedText
     {
-        private Dictionary<int, string> _topTenWords;
+        private readonly Dictionary<int, string> _topTenWords;
+        private readonly int _repeatedWordsCount;
 
-        public ProcessedText(Dictionary<int, string> topTenWords)
+        public ProcessedText(Dictionary<int, string> topTenWords, int repeatedWordsCount)
         {
             _topTenWords = topTenWords;
+            _repeatedWordsCount = repeatedWordsCount;
         }
 
         public IEnumerable<KeyValuePair<int, string>> GetTopTenWords()
@@ -19,7 +21,7 @@ namespace kata_text_processing
 
         public int GetNumberOfWords()
         {
-            return 0;
+            return _repeatedWordsCount;
         }
     }
 }
