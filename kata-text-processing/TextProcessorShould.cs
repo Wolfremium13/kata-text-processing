@@ -7,12 +7,13 @@ namespace kata_text_processing
 {
     public class TextProcessorShould
     {
+        private const string GivenText =
+            "Hello, this is an example for you to practice. You should grab this text and make it as your test case.";
+        
         [Fact]
         public void count_the_top_ten_words_ranked_by_frequency()
         {
-            var givenText =
-                "Hello, this is an example for you to practice. You should grab this text and make it as your test case.";
-            var textProcessor = new TextProcessor(givenText);
+            var textProcessor = new TextProcessor(GivenText);
 
             var processedText = textProcessor.Analyze();
 
@@ -31,16 +32,14 @@ namespace kata_text_processing
             };
             Assert.Equal(expectedTopTenWords, processedText.GetTopTenWords());
         }
-        
+
         [Fact]
         public void count_the_number_of_words()
         {
-            var givenText =
-                "Hello, this is an example for you to practice. You should grab this text and make it as your test case.";
-            var textProcessor = new TextProcessor(givenText);
+            var textProcessor = new TextProcessor(GivenText);
 
             var processedText = textProcessor.Analyze();
-            
+
             Assert.Equal(21, processedText.GetNumberOfWords());
         }
     }
