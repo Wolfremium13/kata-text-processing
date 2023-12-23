@@ -37,21 +37,21 @@ namespace kata_text_processing
 
         private Dictionary<string, int> GetRepeatedWords()
         {
-            var words = _text.Split(' ');
+            var words = _text.Split(' ')
+                .Select(word => word.Replace(",", "").Replace(".", "").ToLower())
+                .ToList();
             var repeatedWords = new Dictionary<string, int>();
             foreach (var word in words)
             {
-                var cleanedWord = word.Replace(",", "").Replace(".", "").ToLower();
-                if (repeatedWords.ContainsKey(cleanedWord))
+                if (repeatedWords.ContainsKey(word))
                 {
-                    repeatedWords[cleanedWord]++;
+                    repeatedWords[word]++;
                 }
                 else
                 {
-                    repeatedWords.Add(cleanedWord, 1);
+                    repeatedWords.Add(word, 1);
                 }
             }
-
             return repeatedWords;
         }
     }
