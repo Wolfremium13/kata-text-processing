@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Xunit;
 
 namespace kata_text_processing
@@ -16,18 +18,18 @@ namespace kata_text_processing
 
             var expectedTopTenWords = new Dictionary<int, string>()
             {
-                { 1, "you" },
-                { 2, "this" },
-                { 3, "your" },
-                { 4, "to" },
-                { 5, "text" },
-                { 6, "test" },
-                { 7, "should" },
-                { 8, "practice" },
-                { 9, "make" },
-                { 10, "it" }
+                { 1, "this" },
+                { 2, "you" },
+                { 3, "hello" },
+                { 4, "is" },
+                { 5, "an" },
+                { 6, "example" },
+                { 7, "for" },
+                { 8, "to" },
+                { 9, "practice" },
+                { 10, "should" }
             };
-            Assert.Equal(processedText.GetTopTenWords(), expectedTopTenWords);
+            Assert.Equal(expectedTopTenWords, processedText.GetTopTenWords());
         }
     }
 }
